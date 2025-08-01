@@ -15,24 +15,7 @@ This application allows you to manage employee data, departments, roles, and adm
 ---
 
 ## 📁 Project Structure
-office_emp_proj/
-├── emp_app/ # Main Django app
-│ ├── migrations/ # Database migrations
-│ ├── static/ # Static files (CSS, JS, images)
-│ ├── templates/ # HTML templates
-│ ├── admin.py # Admin panel settings
-│ ├── models.py # Data models
-│ ├── urls.py # App-level routes
-│ └── views.py # Core logic
-├── office_emp_proj/ # Django project settings
-│ ├── settings.py
-│ ├── urls.py # Project routes
-├── db.sqlite3 # SQLite database (ignored in .gitignore)
-├── manage.py # Django project manager
-├── requirements.txt # Python dependencies
-└── .gitignore # Git ignore file
----
-
+<pre> <code> office_emp_proj/ ├── emp_app/ # Main Django app │ ├── migrations/ # Database migrations │ ├── static/ # Static files (CSS, JS, images) │ ├── templates/ # HTML templates │ ├── admin.py # Admin panel settings │ ├── models.py # Data models │ ├── urls.py # App-level routes │ └── views.py # Core logic ├── office_emp_proj/ # Django project settings │ ├── settings.py │ └── urls.py # Project routes ├── db.sqlite3 # SQLite database (ignored in .gitignore) ├── manage.py # Django project manager ├── requirements.txt # Python dependencies └── .gitignore # Git ignore file </code> </pre>
 ## ✨ Features
 
 - ✅ Add, update, delete employee records
