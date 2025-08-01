@@ -1,0 +1,151 @@
+
+{% extends "emp_base.html" %}
+
+{% block main %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Employee education</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+
+<div class="container-fluid">
+    <a href = "{% url 'Edit_MyEducation' %}" class ="btn btn-primary float-right"> Edit My Education</a>
+    <h1 class=  "text-center" style="border-bottom:2px solid">My  Education</h1>
+    <hr>
+    <div class="container mt-4">
+       
+  <h3 class="mb-3">Post Graduate Details</h3>
+  <table class="table table-bordered table-striped table-hover shadow rounded" style="table-layout: fixed;">
+    <thead class="table-dark">
+      <tr>
+        <th style="width: 30%;">Field</th>
+        <th style="width: 70%;">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Course Name</th>
+        <td>{{  education.course_PG|default:"None" }}</td>
+      </tr>
+      <tr>
+        <th>College Name</th>
+        <td>{{  education.clg_name_PG|default:"None" }}</td>
+      </tr>
+      <tr>
+        <th>Passing Year</th>
+        <td>{{  education.year_of_pass_PG|default:"None" }}</td>
+      </tr>
+      <tr>
+        <th> Overall Percentage </th>
+        <td>{{  education.percentage_PG|default:"None" }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Second Company -->
+  <h3 class="mb-3 mt-5">Graduation Details</h3>
+  <table class="table table-bordered table-striped table-hover shadow rounded" style="table-layout: fixed;">
+    <thead class="table-dark">
+      <tr>
+        <th style="width: 30%;">Field</th>
+        <th style="width: 70%;">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Course Name</th>
+        <td>{{  education.course_Grad|default:"None" }}</td>
+      </tr>
+      <tr>
+        <th>College Name</th>
+        <td>{{  education.clg_name_Grad|default:"None" }}</td>
+      </tr>
+      <tr>
+        <th>Passing Year</th>
+        <td>{{  education.year_of_pass_Grad|default:"None" }}</td>
+      </tr>
+      <tr>
+        <th> Overall Percentage </th>
+        <td>{{  education.percentage_Grad|default:"None" }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Third Company -->
+  <h3 class="mb-3 mt-5"> HSC Details</h3>
+  <table class="table table-bordered table-striped table-hover shadow rounded" style="table-layout: fixed;">
+    <thead class="table-dark">
+      <tr>
+        <th style="width: 30%;">Field</th>
+        <th style="width: 70%;">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Course Name</th>
+        <td>{{  education.course_HSC|default:"None" }}</td>
+      </tr>
+      <tr>
+        <th>College Name</th>
+        <td>{{  education.clg_name_HSC|default:"None" }}</td>
+      </tr>
+      <tr>
+        <th>Passing Year</th>
+        <td>{{  education.year_of_pass_HSC|default:"None" }}</td>
+      </tr>
+      <tr>
+        <th> Overall Percentage </th>
+        <td>{{  education.percentage_HSC|default:"None" }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <h3 class="mb-3 mt-5"> SSC Details</h3>
+  <table class="table table-bordered table-striped table-hover shadow rounded" style="table-layout: fixed;">
+    <thead class="table-dark">
+      <tr>
+        <th style="width: 30%;">Field</th>
+        <th style="width: 70%;">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Course Name</th>
+        <td>{{  education.course_SSC|default:"None" }}</td>
+      </tr>
+      <tr>
+        <th>College Name</th>
+        <td>{{  education.clg_name_SSC|default:"None" }}</td>
+      </tr>
+      <tr>
+        <th>Passing Year</th>
+        <td>{{  education.year_of_pass_SSC|default:"None" }}</td>
+      </tr>
+      <tr>
+        <th> Overall Percentage </th>
+        <td>{{  education.percentage_SSC|default:"None" }}</td>
+      </tr>
+    </tbody>
+  </table>
+      </div>
+      
+    
+</div>
+</div>
+</div>
+
+<!-- Success and Error Alerts -->
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}
+</body>
+</html>

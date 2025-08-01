@@ -1,0 +1,90 @@
+"
+{% load static %}
+<html>
+    <head>
+
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel = "stylesheet" href="{% static 'css/Main.css'%}">
+
+  <style>
+    .list-group-item {
+    padding:2px !important;
+    }
+  </style>
+
+<script src = "https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src = "https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
+<script src = "https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap4.js"></script>
+<script src = "https://cdn.datatables.net/buttons/3.2.4/js/dataTables.buttons.js"></script>
+<script src = "https://cdn.datatables.net/buttons/3.2.4/js/buttons.bootstrap4.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src = "https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src = "https://cdn.datatables.net/buttons/3.2.4/js/buttons.html5.min.js"></script>
+<script src = "https://cdn.datatables.net/buttons/3.2.4/js/buttons.print.min.js"></script>
+<script src = "https://cdn.datatables.net/buttons/3.2.4/js/buttons.colVis.min.js"></script>
+
+
+<link rel = "stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel = "stylesheet" href="https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap4.css">
+<link rel = "stylesheet" href="https://cdn.datatables.net/buttons/3.2.4/css/buttons.bootstrap4.css">
+
+<script>
+
+$(document).ready(function() {  
+new DataTable('#example', {
+    layout: {
+        topStart: {
+            buttons: ['copy', 'excel', 'pdf', 'colvis']
+        }
+    }
+});
+});
+</script>
+</head>
+
+<body>
+<div class="container-fluid">
+<div class="row">
+<div class="col-sm-2">
+ <center><img src="{%static 'images/icon.png'%}" class="img-thumbnail  rounded-circle my-3"></center>
+ <div class="list-group">
+    
+  
+    <a href="{% url 'Admin_home' %}" class="list-group-item list-group-item-action list-group-item-primary fw-bold {% if request.path == '/Admin_home/' %} active {% endif %}">Dashboard</a>
+    <a href="{% url 'view_emp' %}" class="list-group-item list-group-item-action list-group-item-danger {% if request.path == '/view_emp' %} active {% endif %}">View Employee</a>
+    <a href="{% url 'add_emp' %}" class="list-group-item list-group-item-action list-group-item-secondary  {% if request.path == '/add_emp' %} active {% endif %} ">Add Employee</a>
+    <a href="{% url 'remove_emp' %}" class="list-group-item list-group-item-action list-group-item-warning {% if request.path == '/remove_emp' %} active {% endif %}">Remove Employee </a> 
+    <a href="{% url 'filter_emp' %}" class="list-group-item list-group-item-action list-group-item-success {% if request.path == '/filter_emp' %} active {% endif %}">Find Employee</a>
+    <a href="{% url 'All_inone' %}" class="list-group-item list-group-item-action list-group-item-success {% if request.path == '/All_inone' %} active {% endif %}"> All in One </a>
+    <a href="{% url 'Change_pswrdadmin' %}" class="list-group-item list-group-item-action list-group-item-warning {% if request.path == '/Change_pswrdadmin' %} active {% endif %}"> Change Password </a> 
+    <a href="{% url 'logout' %}" class="list-group-item list-group-item-action list-group-item-warning"> Logout </a> 
+    
+  </div>
+</div>
+
+<div class="col-sm-10 p-0">
+  <div class = "container-fluid p-4">
+    <h5 class ="text-center p-3 font-weight-bold" style="border-bottom: 2px solid green; border-top: 2px solid green">Employee Record Management System</h5>
+
+    <div class ="card shadow" style="min-height: 89vh">
+      <div class="card-body">
+       {% block main %}
+
+
+       {% endblock %}
+
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>"

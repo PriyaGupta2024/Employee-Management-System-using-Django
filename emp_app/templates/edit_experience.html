@@ -1,0 +1,96 @@
+
+{% extends "emp_base.html" %}
+
+{% block main %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Employee experience</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+
+<div class="container-fluid">
+    <a href = "{% url 'my_experience' %}" class ="btn btn-primary float-right"> View Work Experience</a>
+    <h1 class=  "text-center" style="border-bottom:2px solid">Edit Work Experience</h1>
+    <hr>
+    <div class="container mt-4">
+       <!-- First Company -->
+  <form method="post" class="shadow p-4 rounded bg-light">
+    {% csrf_token %}
+    
+    <h3 class="mb-3">First Company Details</h3>
+    <div class="mb-3">
+      <label>Company Name</label>
+      <input type="text" class="form-control" name="Company_name1" value="{{ experience.Company_name1|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Job Position</label>
+      <input type="text" class="form-control" name="Possition1" value="{{ experience.Possition1|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Salary</label>
+      <input type="number" class="form-control" name="salary1" value="{{ experience.salary1|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Duration</label>
+      <input type="text" class="form-control" name="Duration1" value="{{ experience.Duration1|default:'' }}">
+    </div>
+
+    <h3 class="mb-3 mt-5">Second Company Details</h3>
+    <div class="mb-3">
+      <label>Company Name</label>
+      <input type="text" class="form-control" name="Company_name2" value="{{ experience.Company_name2|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Job Position</label>
+      <input type="text" class="form-control" name="Possition2" value="{{ experience.Possition2|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Salary</label>
+      <input type="number" class="form-control" name="salary2" value="{{ experience.salary2|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Duration</label>
+      <input type="text" class="form-control" name="Duration2" value="{{ experience.Duration2|default:'' }}">
+    </div>
+
+    <h3 class="mb-3 mt-5">Third Company Details</h3>
+    <div class="mb-3">
+      <label>Company Name</label>
+      <input type="text" class="form-control" name="Company_name3" value="{{ experience.Company_name3|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Job Position</label>
+      <input type="text" class="form-control" name="Possition3" value="{{ experience.Possition3|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Salary</label>
+      <input type="number" class="form-control" name="salary3" value="{{ experience.salary3|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Duration</label>
+      <input type="text" class="form-control" name="Duration3" value="{{ experience.Duration3|default:'' }}">
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+  </form>
+      </div>
+      
+    
+</div>
+</div>
+</div>
+
+<!-- Success and Error Alerts -->
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}
+</body>
+</html>

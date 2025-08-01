@@ -1,0 +1,146 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Login</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+    <style>
+        /* Full-screen background */
+        body {
+            background-image: url('{% static "images/img4.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Glassmorphism login card */
+        .login-card {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        /* Round admin icon */
+        .admin-icon {
+            border-radius: 50%;
+            object-fit: cover;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Input fields */
+        .form-control {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #212529; /* Bootstrap’s default dark gray text */
+            caret-color: #212529;
+        }
+
+        .form-control::placeholder {
+            color: rgba(0, 0, 0, 0.5); /* semi-transparent dark placeholder */
+        }
+
+        /* Login button */
+        .btn-login {
+            background: linear-gradient(45deg, #007bff, #00c6ff);
+            color: white;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+        }
+
+        .btn-login:hover {
+            background: linear-gradient(45deg, #0056b3, #0096ff);
+        }
+
+        /* Go back link */
+        .fload-right {
+            display: block;
+            margin-top: 10px;
+            color: white;
+        }
+
+        .fload-right:hover {
+            text-decoration: underline;
+            color: #e0e0e0;
+        }
+
+        /* Show password checkbox */
+        .show-password {
+            text-align: left;
+            color: white;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-card">
+        <img src="{% static 'images/admin.jpg' %}" class="admin-icon mb-3">
+        <h3 class="text-white">Admin Login</h3>
+        {% if error != "none" %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+        {% endif %}
+        
+        <form method="POST" >
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <input type="text" name="username" class="form-control py-4" placeholder="Username" required>
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="password" name="pwd" class="form-control py-4" placeholder="Password" required>
+            </div>
+
+            <div class="form-group form-check show-password">
+                <input type="checkbox" class="form-check-input" id="showPasswordCheck">
+                <label class="form-check-label" for="showPasswordCheck">Show Password</label>
+            </div>
+
+            <button type="submit" class="btn btn-login btn-block">Login</button>
+            <a href="{% url 'index' %}" class="fload-right">Go Back To Home</a>
+        </form>
+    </div>
+
+    <!-- JavaScript to toggle password -->
+    {% comment %} <script>
+        const showPasswordCheck = document.getElementById("showPasswordCheck");
+        const passwordInput = document.getElementById("password");
+
+        showPasswordCheck.addEventListener("change", () => {
+            passwordInput.type = showPasswordCheck.checked ? "text" : "password";
+        });
+    </script> {% endcomment %}
+
+</body>
+{% comment %} {% if error == "no" %}
+ <script> 
+    alert('Logged In Successfull !');
+    window.location = ('{% url 'Adminlogin' %}');
+ </script>
+ {% endif %}
+ {% if error == "yes" %}
+ <script>
+    alert('Something Went Wrong, Try Again... !');
+ </script> 
+ {% endif %} {% endcomment %}
+</html>

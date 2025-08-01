@@ -1,0 +1,80 @@
+{% comment %} {%include 'Header.html' %} {% endcomment %}
+<script>
+    function checkpassword(){
+        if (document.signup.pwd.value!=document.signup.cpwd.value)
+    {
+    alert('password and confirm password field does not match');
+    document.signup.cpwd.focus();
+    return false;
+    }
+    return true;
+    }
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>create Employee acount </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <!-- Content here -->
+        <h1>Employee signup </h1>
+        <hr>
+       <form  method="POST" name = "signup" onsubmit = "return checkpassword()">
+            {% csrf_token %}
+            <label for="first_name">First Name</label><br>
+            <input type="text"  id="first_name" name = "first_name" value = "{{first_name}}" required><br>
+
+            <label for="last_name">Last Name</label><br>
+            <input type="text"  id="last_name" name = "last_name" value = "{{last_name}}" required><br>
+
+            <label for="emp_code">Enter Employee Code</label><br>
+            <input type="number"  id="emp_code" name = "emp_code" value = "{{emp_code}}" required><br>
+
+            <label for="email">Enter Email</label><br>
+            <input type="email"  id="email" name = "email" value = "{{email}}" required><br>
+
+            <label for="pwd">Password</label><br>
+            <input type="password"  id="pwd" name = "pwd" value = "{{pwd}}" required><br>
+
+            <label for="cpwd"> Confirm Password</label><br>
+            <input type="password"  id="cpwd" name = "cpwd" value = "{{cpwd}}" required><br>
+            <hr>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <a href="{% url 'emp_login' %}" class="btn btn-secondary">Login</a> <!-- Login button -->
+        </form>
+         
+ </div>
+ 
+ <!--{% if error == "no" %}
+ <script> 
+    alert('Signup Successfull !');
+    window.location = ('{% url 'emp_login' %}');
+ </script>
+ {% endif %}
+ {% if error == "yes" %}
+ <script>
+    alert('Something Went Wrong, Try Again... !');
+ </script> 
+ {% endif %}-->
+ 
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+    
+</body>
+
+
+
+</html>

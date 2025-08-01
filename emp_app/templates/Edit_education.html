@@ -1,0 +1,132 @@
+
+{% extends "admin_base.html" %}
+
+{% block main %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Employee education</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+
+<div class="container-fluid">
+    <h1 class=  "text-center" style="border-bottom:2px solid">Edit Employee Education Details</h1>
+    <hr>
+    <div class="container mt-4">
+       <!-- First Company -->
+  <form method="post" class="shadow p-4 rounded bg-light">
+    {% csrf_token %}
+    
+    <h3 class="mb-3">Post Graduation Details</h3>
+    <div class="mb-3">
+      <label>Course Name</label>
+      <input type="text" class="form-control" name="course_PG" value="{{ education.course_PG|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>College Name</label>
+      <input type="text" class="form-control" name="clg_name_PG" value="{{  education.clg_name_PG|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Passing Year</label>
+      <input type="number" class="form-control" name="year_of_pass_PG" value="{{ education.year_of_pass_PG|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Overall Percentage</label>
+      <input type="number" class="form-control" name="percentage_PG" value="{{  education.percentage_PG|default:'' }}">
+    </div>
+
+    <h3 class="mb-3 mt-5">Graduation Details</h3>
+     <div class="mb-3">
+      <label>Course Name</label>
+      <input type="text" class="form-control" name="course_Grad" value="{{ education.course_Grad|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>College Name</label>
+      <input type="text" class="form-control" name="clg_name_Grad" value="{{  education.clg_name_Grad|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Passing Year</label>
+      <input type="number" class="form-control" name="year_of_pass_Grad" value="{{ education.year_of_pass_Grad|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Overall Percentage</label>
+      <input type="number" class="form-control" name="percentage_Grad" value="{{  education.percentage_Grad|default:'' }}">
+    </div>
+
+
+    <h3 class="mb-3 mt-5">HSC Details</h3>
+      <div class="mb-3">
+      <label>Course Name</label>
+      <input type="text" class="form-control" name="course_HSC" value="{{ education.course_HSC|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>College Name</label>
+      <input type="text" class="form-control" name="clg_name_HSC" value="{{  education.clg_name_HSC|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Passing Year</label>
+      <input type="number" class="form-control" name="year_of_pass_HSC" value="{{ education.year_of_pass_HSC|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Overall Percentage</label>
+      <input type="number" class="form-control" name="percentage_HSC" value="{{  education.percentage_HSC|default:'' }}">
+    </div>
+
+
+
+
+    <h3 class="mb-3 mt-5">SSC Details</h3>
+      <div class="mb-3">
+      <label>Course Name</label>
+      <input type="text" class="form-control" name="course_SSC" value="{{ education.course_SSC|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>College Name</label>
+      <input type="text" class="form-control" name="clg_name_SSC" value="{{  education.clg_name_SSC|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Passing Year</label>
+      <input type="number" class="form-control" name="year_of_pass_SSC" value="{{ education.year_of_pass_SSC|default:'' }}">
+    </div>
+    <div class="mb-3">
+      <label>Overall Percentage</label>
+      <input type="number" class="form-control" name="percentage_SSC" value="{{  education.percentage_SSC|default:'' }}">
+    </div>
+
+
+
+
+
+    <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+  </form>
+      </div>
+      
+    
+</div>
+</div>
+</div>
+
+<!-- Success and Error Alerts -->
+ {%  if error == "no" %}
+ <script>
+    alert('Employee Education Details has been Updated');
+    window.location = '{% url 'Edit_education' education.user.id %}';
+ </script>
+ {% endif %}
+ {% if error == "yes" %}
+ <script>
+    alert('Something went wrong , Try Again.....');
+ </script>
+ {% endif %}
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+{% endblock %}
+</body>
+</html>
